@@ -3,8 +3,8 @@
 /**
  * _myenv - prints the current environment
  * @info: the Structure containing potential arguments. Used to maintain
- *          the constant function prototype.
- * Return: Always 0
+ *          a constant function prototype.
+ * Return:  0
  */
 int _myenv(info_t *info)
 {
@@ -13,9 +13,9 @@ int _myenv(info_t *info)
 }
 
 /**
- * _getenv - gets the value of an environ variable
+ * _getenv - geting the value of an environ variable
  * @info: the Structure containing potential arguments. Used to maintain
- * @name: the env var name
+ * @name:  env var name
  *
  * Return: value
  */
@@ -38,7 +38,7 @@ char *_getenv(info_t *info, const char *name)
  * _mysetenv - the Initialize a new environment variable,
  *             or modify an existing one
  * @info: the Structure containing potential arguments. Used to maintain
- *        the constant function prototype.
+ *        a constant function prototype.
  *  Return: 0
  */
 int _mysetenv(info_t *info)
@@ -61,15 +61,15 @@ int _mysetenv(info_t *info)
  */
 int _myunsetenv(info_t *info)
 {
-	int j;
+	int r;
 
 	if (info->argc == 1)
 	{
 		_eputs("Too few arguements.\n");
 		return (1);
 	}
-	for (j = 1; j <= info->argc; j++)
-		_unsetenv(info, info->argv[j]);
+	for (r = 1; r <= info->argc; r++)
+		_unsetenv(info, info->argv[r]);
 
 	return (0);
 }
@@ -77,16 +77,16 @@ int _myunsetenv(info_t *info)
 /**
  * populate_env_list - populates env linked list
  * @info: the Structure containing potential arguments. Used to maintain
- *          the constant function prototype.
+ *           the constant function prototype.
  * Return: 0
  */
 int populate_env_list(info_t *info)
 {
 	list_t *node = NULL;
-	size_t j;
+	size_t r;
 
-	for (j = 0; environ[j]; j++)
-		add_node_end(&node, environ[j], 0);
+	for (r = 0; environ[r]; r++)
+		add_node_end(&node, environ[r], 0);
 	info->env = node;
 	return (0);
 }
