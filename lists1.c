@@ -82,18 +82,18 @@ size_t print_list(const list_t *h)
  * node_starts_with - checks if node string starts with prefix
  * @node: list head pointer
  * @prefix: string to be matched
- * @c: next char to be matched after prefix
+ * @e: next char to be matched after prefix
  *
  * Return: match node or null
  */
-list_t *node_starts_with(list_t *node, char *prefix, char c)
+list_t *node_starts_with(list_t *node, char *prefix, char e)
 {
 	char *p = NULL;
 
 	while (node)
 	{
 		p = starts_with(node->str, prefix);
-		if (p && ((c == -1) || (*p == c)))
+		if (p && ((e == -1) || (*p == e)))
 			return (node);
 		node = node->next;
 	}
